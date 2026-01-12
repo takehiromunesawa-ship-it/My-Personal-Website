@@ -1,13 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head> 
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <img
-            src="https://assets.hackclub.com/flag-orpheus-left.png"
-        />
-        <h1>Takehiro Munesawa</h1>
-        <p>A normal highschooler that loves to build things</p>
+        <nav class="navbar">
+            <div class="nav-logo">TakeM</div>
+            <ul class="nav-links">
+                <li><a href="#">About</a></li> <!-- change this code in the future to add more anchors for the bar to use -->
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li> <!-- change this code in the future to add more anchors for the bar to use -->
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-btn">Change Theme</button>
+        <div class="profile-card">
+            <img src="profile.jpg" alt="Photo of me" class="profile-image">
+            <h1>Takehiro Munesawa</h1>
+            <p>
+                A high schooler who lives in Japan, and loves to build things with his own hands.Has almost zero coding experience, but is trying the best to make it into something worth it.
+            </p>
+            <a href="https://www.instagram.com/mtake.noko/" target="_blank" class="contact-btn">View my Instagram</a>
+        </div>
+        <section class="projects-container" id="projects">
+            <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <!-- In Codespaces, once you save these files, your preview should update automatically. 
+             You can add as many projects as you want just by copying the div with the class project-card 
+             and pasting it again in your HTML.
+            -->
+            <div class="project-card">
+            <h3>Personal Website</h3>
+            <p>My very first website built using HTML and CSS on GitHub Codespaces.</p>
+            <a href="project-personal-site.html" class="project-link">View Details</a>
+            </div>
+
+            <div class="project-card">
+            <h3>Future Project</h3>
+            <p>This is a placeholder for the next cool thing I am going to code!</p>
+            <a href="#" class="project-link">Coming Soon</a>
+            </div>
+        </div>
+        </section>
+        <script>
+        const btn = document.getElementById("theme-toggle");
+    
+        btn.addEventListener("click", function() {
+        // This 'toggles' the .dark-theme class on and off the body
+        document.body.classList.toggle("dark-theme");
+        });
+    </script>
     </body>
 </html>

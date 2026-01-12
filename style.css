@@ -1,9 +1,203 @@
-img {
-    width: 200px;
+/* 1. THEMES - These are your color "nicknames" */
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --accent-color: #6c5ce7;
+    --heading-font: 'Space Grotesk' , sans-serif;
+    --body-font: 'JetBrains Mono', monospace;
 }
+
+.dark-theme {
+    --bg-color: #18191a;
+    --card-bg: #242526;
+    --text-color: #e4e6eb;
+    --accent-color: #a29bfe;
+}
+
+/* 2. GLOBAL STYLES */
 body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
+}
+
+/* This makes sure all headers and paragraphs listen to the theme */
+h1, h2, h3, p, label {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+/* Outfit font for all headings */
+h1, h2, h3, .nav-logo {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-weight: 700; /* Makes them bold */
+}
+
+/* 3. COMPONENTS (Restoring your original look) */
+
+.profile-card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 40px;             /* Your original padding */
+    border-radius: 20px;
     text-align: center;
-    font-family: 'Arial';
-    background: azure;
-    color: navy;
+    width: 500px;              /* Your original wider width */
+    max-width: 90%;            /* This prevents it from breaking on small phones */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+    margin: 20px auto;
+    font-family: 'Inter', sans-serif; 
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--text-color); /* Kept this for visibility in dark mode */
+    border-radius: 12px;
+    padding: 20px;
+    width: 280px;              /* Your original project card size */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* We removed the hard-coded #333 and #666 from here */
+.profile-card h1 {
+    margin: 10px 0;
+    font-size: 32px;
+    letter-spacing: -1px;
+    color: var(--text-color);
+}
+
+.profile-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+    font-size: 18px;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+/* 4. PROJECTS SECTION */
+.projects-container {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    padding: 20px;
+    width: 280px;
+    border: 1px solid rgba(0,0,0,0.1); /* Subtle border */
+    transition: transform 0.3s ease
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+/* 5. BUTTONS */
+.theme-btn, .contact-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.theme-btn {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.contact-btn:active {
+    transform: scale(0.95);
+}
+/* Navigation Bar Styling */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 2000; /* Higher than the theme button */
+    box-sizing: border-box;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.nav-links {
+    list-style: none; /* Removes bullet points */
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Smooth Scrolling effect */
+html {
+    scroll-behavior: smooth;
+}
+.reflection-card {
+    /* Set a specific width that looks good on computers */
+    width: 800px; 
+    
+    /* This prevents the card from being wider than the screen on phones */
+    max-width: 90%; 
+    
+    /* The magic lines for centering */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    /* Makes the text inside easy to read */
+    text-align: left; 
+    padding: 40px;
 }
